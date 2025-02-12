@@ -1,0 +1,18 @@
+from pages.rostelekom_page import RostelekomPage
+from pages.shops_page import ShopPage
+import time
+
+def test_visit(driver):
+    rostelekom_page = RostelekomPage(driver)
+    rostelekom_page.visit()
+
+    assert rostelekom_page.get_shops().is_displayed()
+
+    rostelekom_page.get_shops().click()
+    shop_page = ShopPage(driver)
+
+    print(shop_page.get_shops())
+
+    assert shop_page.get_shops().is_displayed()
+
+    time.sleep(5)
